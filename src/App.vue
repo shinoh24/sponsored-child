@@ -14,7 +14,30 @@
 
       <v-spacer></v-spacer>
 
-      <v-toolbar-items>
+      <v-toolbar-items v-if="isMobile">
+        <v-menu offset-y>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn
+              icon
+              color="secondary"
+              :key="key"
+              v-bind="attrs"
+              v-on="on"
+            >
+              <v-icon>mdi-dots-vertical</v-icon>
+            </v-btn>
+          </template>
+          <v-list>
+            <v-list-item
+              v-for="(button, key) in buttons"
+              :key="key"
+            >
+              <v-list-item-title>{{ button.name }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </v-toolbar-items>
+      <v-toolbar-items v-else>
         <template v-for="(button, key) in buttons">
           <v-btn
             text
@@ -25,11 +48,11 @@
             {{ button.name }}
           </v-btn>
         </template>
+          <v-btn icon
+            color="secondary">
+            <v-icon>mdi-magnify</v-icon>
+          </v-btn>
       </v-toolbar-items>
-      <v-btn icon
-        color="secondary">
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
     </v-app-bar>
     
     <v-main class="grey lighten-5 scroll-y">
@@ -124,7 +147,8 @@ export default {
     social: [
       { title: 'Facebook', icon: 'mdi-facebook' },
       { title: 'Twitter', icon: 'mdi-twitter' }
-    ]
+    ],
+    isMobile: false
   }),
   methods: {
     onScroll (e) {
@@ -134,7 +158,24 @@ export default {
     },
     toTop () {
       this.$vuetify.goTo(0)
+    },
+    
+    handleResize() {
+      if(window.innerWidth >= 992 ){
+        this.isMobile = false
+      } else if (window.innerWidth >= 768) {
+        this.isMobile = true
+      } else if (window.innerWidth <= 576) {
+        this.isMobile = true
+      }
     }
+  },
+  destroyed() {
+    window.removeEventListener('resize', this.handleResize);
+  },
+  created () {
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize()
   }
 }
 </script>

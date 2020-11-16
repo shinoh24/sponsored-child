@@ -22,7 +22,7 @@
             <v-row dense>
               <v-col
               :key="key"
-              cols="4"
+              :cols="columnFlex"
               class="px-4"
               v-for="(children, key) in children">
                 <v-hover v-slot:default="{ hover }">
@@ -113,7 +113,12 @@ export default {
         avatar: 'https://images.pexels.com/photos/1484796/pexels-photo-1484796.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
         description: 'Veniam rerum saepe unde nihil possimus quibusdam esse accusamus.'
       }
-    ]
+    ],
+    window: {
+      width: 0,
+      height: 0
+    },
+    columnFlex: 4
   }),
   methods: {
     async getSponsoredChildrenDisplay () {
@@ -128,10 +133,32 @@ export default {
         this.error = error
         setTimeout(() => { this.isLoading = false }, 2000)
       }
+    },
+    handleResize() {
+      this.window.width = window.innerWidth;
+      this.window.height = window.innerHeight;
+      if(this.window.width >= 992 ){
+        this.columnFlex = 4
+        localStorage.setItem('isMobile', false)
+      } else if (this.window.width >= 768) {
+        this.columnFlex = 6
+        localStorage.setItem('isMobile', true)
+      } else if (this.window.width <= 576) {
+        this.columnFlex = 12
+        localStorage.setItem('isMobile', true)
+      }
     }
   },
+  destroyed() {
+    window.removeEventListener('resize', this.handleResize);
+  },
   created () {
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize()
+
     this.getSponsoredChildrenDisplay()
+
   }
 }
 </script>
+

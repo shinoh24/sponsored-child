@@ -149,3 +149,28 @@ body {
     overflow-x: hidden;
   }
 }
+
+@media only screen and ( max-width: 768px) { 
+  .v-application {
+    .display-1,
+    .display-2,
+    .display-3,
+    .display-4 {
+      font-family: $body-font-family !important;
+      font-size: 1.125rem !important;
+    }
+  }
+}
+
+@media only screen and ( max-width: 375px) { 
+  .v-application {
+    .display-1,
+    .display-2,
+    .display-3,
+    .display-4 {
+      font-family: $body-font-family !important;
+      font-size: .8rem !important;
+      line-height: 0.9rem !important;
+    }
+  }
+}
