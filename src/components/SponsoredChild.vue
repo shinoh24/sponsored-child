@@ -43,7 +43,7 @@
                           style="height: 100%;">
                           {{ children.name }}
                           <p class="subtitle-2 text-uppercase font-weight-light" style="letter-spacing: 2px !important;">
-                            {{ children.position }}
+                            {{ children.age }}
                           </p>
                           <p class="caption font-weight-light  px-3" style="letter-spacing: 2px !important;">
                             {{ children.description }}
@@ -91,25 +91,25 @@ export default {
     children: [
       {
         name: 'John Doe',
-        position: 'Innkeeper CEO',
+        age: 12,
         avatar: 'https://images.pexels.com/photos/4026110/pexels-photo-4026110.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
         description: 'Veniam rerum saepe unde nihil possimus quibusdam esse accusamus.'
       },
       {
         name: 'John Doe',
-        position: 'Innkeeper CEO',
+        age: 7,
         avatar: 'https://images.pexels.com/photos/2775561/pexels-photo-2775561.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
         description: 'Veniam rerum saepe unde nihil possimus quibusdam esse accusamus.'
       },
       {
         name: 'John Doe',
-        position: 'Innkeeper CEO',
+        age: 14,
         avatar: 'https://images.pexels.com/photos/2119500/pexels-photo-2119500.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
         description: 'Veniam rerum saepe unde nihil possimus quibusdam esse accusamus.'
       },
       {
         name: 'John Doe',
-        position: 'Innkeeper CEO',
+        age: 13,
         avatar: 'https://images.pexels.com/photos/1484796/pexels-photo-1484796.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
         description: 'Veniam rerum saepe unde nihil possimus quibusdam esse accusamus.'
       }
