@@ -1,0 +1,151 @@
+$body-font-family: "Mukta", sans-serif;
+$primary: #FC714A;
+$secondary: #4374C9;
+
+@import "~vuetify/src/styles/styles.sass";
+@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700;800&display=swap");
+
+body {
+  font-size: 14px;
+  font-family: $body-font-family;
+}
+
+.v-application {
+  .display-1,
+  .display-2,
+  .display-3,
+  .display-4,
+  .headline,
+  .title,
+  .subtitle-1,
+  .subtitle-2,
+  .body-1,
+  .body-2,
+  .caption,
+  .overline {
+    font-family: $body-font-family !important;
+  }
+}
+
+.v-pagination__item {
+  box-shadow: none !important;
+  border: 1px solid #cccccc;
+  border-radius: 0px !important;
+  margin: 0 !important;
+}
+
+.v-pagination__navigation {
+  box-shadow: none !important;
+  box-shadow: none !important;
+  border: 1px solid #cccccc;
+  border-radius: 0px !important;
+  width: 34px !important;
+  height: 34px !important;
+  margin: 0 !important;
+}
+
+.v-pagination__item--active {
+  border: 1px solid #cccccc;
+  &:active,
+  &:hover,
+  &:focus {
+    outline: none !important;
+    box-sizing: none !important;
+  }
+}
+
+// span {
+//   color: $secondary !important;
+// }
+
+.outlined-primary-btn {
+  color: $primary !important;
+  background-color: white !important;
+  border: 1px solid $primary !important;
+}
+
+.hover-primary {
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: $primary !important;
+    color: white !important;
+
+    span>i,
+    span>i,
+    span>i {
+      color: white !important;
+    }
+  }
+}
+
+.hover-nav {
+  color: white !important;
+  span,
+  span>i,
+  span>i {
+    color: $secondary !important;
+  }
+
+  &:active,
+  &:focus,
+  &:hover {
+    text-decoration: underline !important;
+    color: $secondary !important;
+
+    span>i,
+    span>i,
+    span>i {
+      color: white !important;
+    }
+  }
+}
+
+.hover-secondary {
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: $secondary !important;
+    color: white !important;
+
+    span>i,
+    span>i,
+    span>i {
+      color: white !important;
+    }
+  }
+}
+
+.hover-primary-link {
+  &:hover,
+  &:active {
+    text-decoration: underline !important;
+  }
+
+  text-decoration: none !important;
+}
+
+.company-avatar {
+  border-radius: 4px !important;
+}
+
+.v-list {
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+.chat {
+  &-sender {
+    height: 50vh;
+    max-height: 50vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  &-body {
+    height: 45vh;
+    max-height: 45vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
